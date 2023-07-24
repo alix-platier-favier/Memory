@@ -1,9 +1,12 @@
-function Card(){
+function Card({item, id, handleClick}){
+
+    const itemClass = item.stat ? " active " + item.stat : ""
+
     return (
-        <div className="card">
-            Card
+        <div className={"card" + itemClass} onClick={() => handleClick(id)}>
+            <img src={item.img} alt=""/>
         </div>
     )
 }
 
-export default Card;
+export default Card
