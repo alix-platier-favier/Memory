@@ -43,16 +43,21 @@ function Cards(){
     }
 
 
-    function handleClick(id){
-        if(prev === -1){
-            setPrev(id)
-            items[id].stat = "active"
-            setItems([...items])
-            setPrev(id)
-        }else{
-            check(id)
+    function handleClick(id) {
+        const clickedItem = items[id];
+        if (clickedItem.stat === "correct" || clickedItem.stat === "active") {
+            return;
+        }
+        
+        if (prev === -1) {
+            setPrev(id);
+            clickedItem.stat = "active";
+            setItems([...items]);
+        } else {
+            check(id);
         }
     }
+    
         
     return (
         <div className="container">
